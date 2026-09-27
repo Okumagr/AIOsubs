@@ -24,6 +24,9 @@ ENV NODE_ENV=production
 ENV PORT=7000
 ENV HOST=0.0.0.0
 
+# Ensure the local fallback data directory is writable by the unprivileged user
+RUN mkdir -p /app/data && chown node:node /app/data
+
 # Create unprivileged user for security
 USER node
 
